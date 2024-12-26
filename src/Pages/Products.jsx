@@ -1,13 +1,15 @@
-import SortByPrice from "../components/SortByPrice";
-import Filter from "../components/Products/Filter";
+
+import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import AllProductCard from "../components/AllProductCard";
 import { FaArrowLeft } from "react-icons/fa6";
 import { FaArrowRight } from "react-icons/fa6";
+import FilterComponent from "../components/Products/Filter"
+import AllProductCard from "../components/AllProductCard";
 import LoadingPage from "./LoadingPage";
-import SearchBar from "../Components/Searchbar";
 import NodataFound from "./NodataFound";
+import SearchBar from "../components/SearchBar"
+import SortByPrice from "../components/SortByPrice";
 
 
 
@@ -27,14 +29,12 @@ const Products = () => {
     useEffect(() => {
         setLoading(true);
         const fetchProducts = async () => {
-            axios.get(`http://localhost:5000/all-products?title=${search}&sort=${sort}&brand=${brand}&category=${category}`).then(res => {
-                console.log(res.data);
+            axios.get(`http://localhost:5000/all-products?title=${search}&page=${page}&limit=${6}&sort=${sort}&brand=${brand}&category=${category}`).then(res => {
                 setProducts(res.data.products);
                 setUniqueBrand(res.data.brands);
                 setUniqueCategory(res.data.categories);
-                setTotalPages(Math.ceil(res.data.totalProducts / 4))
-                setLoading(false)
-
+                setTotalPages(Math.ceil(res.data.totalProducts / 6))
+                setLoading(false);
             })
         }
         fetchProducts()
@@ -66,7 +66,7 @@ const Products = () => {
     };
 
     return (
-        <div className="container mx-auto px-24">
+        <div className="container mx-auto  sm:px-4">
             <h1 className="text-4xl font-bold text-center my-4">All Products</h1>
             {/* search and sort */}
             <div className="lg:flex justify-between">
@@ -74,22 +74,23 @@ const Products = () => {
                 <SortByPrice setSort={setSort}></SortByPrice>
             </div>
             {/* content */}
-            <div className="grid lg:grid-cols-12 pt-5 gap-5">
-                <div className="col-span-2 bg-slate-300 p-4 rounded-t-lg min-h-screen">
-                    <Filter setBrand={setBrand} setCategory={setCategory} handleReset={handleReset} uniqueBrand={uniqueBrand} UniqueCategory={UniqueCategory}></Filter>
+            <div className="grid lg:grid-cols-12  mt-12 gap-5">
+                <div className="col-span-2 bg-slate-300 p-4 rounded-t-lg min-h-fit md:min-h-screen">
+                    <FilterComponent setBrand={setBrand} setCategory={setCategory} handleReset={handleReset} uniqueBrand={uniqueBrand} UniqueCategory={UniqueCategory}></FilterComponent>
                 </div>
                 <div className="md:col-span-10">
                     {
                         isLoading ? <LoadingPage /> : (
                             <>
-                                {products.length === 0 ?
+                                {products.length === 0  ?
                                     <div>
                                         <NodataFound></NodataFound>
                                     </div> :
                                     <div className="min-h-screen grid md:grid-cols-3 gap-8">
                                         {
                                             products.map(product => (
-                                                <AllProductCard key={product._id} product={product}></AllProductCard>
+                                                <AllProductCard 
+                                                 key={product._id} product={product}></AllProductCard>
                                             ))
                                         }
                                     </div>}

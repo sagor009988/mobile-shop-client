@@ -1,8 +1,10 @@
+// eslint-disable-next-line no-unused-vars
+import React from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "../Hooks/useAuth";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import GoogleLogin from "../Components/GoogleLogin/GoogleLogin";
+import GoogleLogin from "../components/GoogleLogin/GoogleLogin";
 
 const Login = () => {
     const { Login } = useAuth();
@@ -26,15 +28,14 @@ const Login = () => {
     return (
         <div>
             <div className="hero bg-base-200 min-h-screen login-bg">
-                <div className="hero-content flex-col lg:flex-row-reverse">
-                    <div className="text-center lg:text-left">
+                <div className="flex gap-5 justify-center items-center flex-col lg:flex-row-reverse">
+                    <div className="text-center lg:text-left max-w-60">
                         <h1 className="text-5xl font-bold">Login now!</h1>
                         <p className="py-6">
-                            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-                            quasi. In deleniti eaque aut repudiandae et a id nisi.
+                          If you have an id ,please login by email and password
                         </p>
                     </div>
-                    <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+                    <div className="card bg-base-100 w-full flex-1 max-w-md shrink-0 shadow-2xl">
                         <form className="card-body" onSubmit={handleSubmit(onSubmit)}>
                             {loginError && (
                                 <p className="text-red-600 text-sm font-light text-center">{loginError}</p>

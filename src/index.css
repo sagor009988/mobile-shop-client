@@ -2,43 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  text-decoration: none;
+
+}
+
+.featuredProductCard {
+  background: linear-gradient(45deg, #f0ecec, #f7f3f7);
+  transition: all 0.3s;
+  
+}
+
+.featuredCard:hover{
+  transform: scale(1.1);
+}
+
+
 .font-style{
       font-family: "Playwrite AU VIC Guides"
 }
 
 .reg-bg{
-      background-image: url("./reg.jpg");
+      background-image: url("/img/reg.jpg");
     background-size: 'cover';
     background-position: 'center';
     background-repeat: 'no-repeat';
 }
 .login-bg{
-      background-image: url("./login.jpg");
+      background-image: url("/img/login.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 .contactUs-bg{
-       background-image: url("./contact.jpg");
+       background-image: url("/img/contact.jpg");
     background-size: cover;
     background-position:center;
   background-repeat:no-repeat; 
 }
 
 .footer-bg{
-        background-image: url("./footer2.jpg");
+        background-image: url("/img/footer2.jpg");
 
 }
 
 .about-bg{
-       background-image: url("./contact.jpg");
+       background-image: url("/img/about.jpg");
     background-size: 'cover';
     background-position: 'center';
     background-repeat: 'no-repeat'; 
 }
 .add-bg{
-      background-image: url("./login.jpg");
+      background-image: url("/img/add.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
+
+

@@ -1,3 +1,5 @@
+// eslint-disable-next-line no-unused-vars
+import React from "react";
 import FeaturedProductCard from "./FeaturedProductCard";
 
 const FeaturedProducts = () => {
@@ -49,7 +51,7 @@ const FeaturedProducts = () => {
     return (
         <div className="py-8">
             <h1 className="text-5xl text-orange-600 font-bold text-center py-10">Featured Products</h1>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-11 pt-5">
 
                 {
                     products.map((product, i) => (

@@ -1,9 +1,14 @@
+// eslint-disable-next-line no-unused-vars
+import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import UserDropdown from "./UserDropdown";
 import useAuth from "../Hooks/useAuth";
+import { BsCart4 } from "react-icons/bs";
+import useUserData from "../Hooks/useUserData";
 
 const Navbar = () => {
     const { user } = useAuth()
+    const userData=useUserData();
     return (
         <div>
             <div className="navbar bg-base-300 font-style font-bold text-2xl">
@@ -45,7 +50,7 @@ const Navbar = () => {
 
                         </ul>
                     </div>
-                    <img src="../../public/A.png" alt="" className="w-20 rounded-full" />
+                    <img src="./img/A.png" alt="" className="w-20 rounded-full" />
                 </div>
                 <div className="navbar-center hidden lg:flex gap-5">
                     <ul className="menu menu-horizontal px-1">
@@ -67,9 +72,12 @@ const Navbar = () => {
                         </li>
 
                     </ul>
+                   
                 </div>
+                <div  className="md:ml-20 font-serif flex relative cursor-pointer" ><p><BsCart4 size={40}  /></p><h1 className="absolute -top-5 left-5">{userData?.cart?.length}</h1></div>
                 {/* nav end */}
                 <div className="navbar-end mr-4">
+                    
                     {
                         user ? <UserDropdown /> :
                             // if user not login

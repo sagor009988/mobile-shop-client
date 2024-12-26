@@ -1,7 +1,9 @@
-import Banner from "../Components/home-Component/Banner";
-import FaqSection from "../Components/home-Component/FaqSection";
-import FeaturedProducts from "../Components/home-Component/FeaturedProducts";
-import UserReview from "../Components/home-Component/UserReview";
+// eslint-disable-next-line no-unused-vars
+import React from "react";
+import Banner from "../components/home-Component/Banner";
+import FaqSection from "../components/home-Component/FaqSection";
+import FeaturedProducts from "../components/home-Component/FeaturedProducts";
+import UserReview from "../components/home-Component/UserReview";
 
 const Home = () => {
     return (

@@ -1,17 +1,26 @@
+// eslint-disable-next-line no-unused-vars
+import React from "react";
 import { createBrowserRouter } from "react-router-dom";
-import MainLayout from "../lyouts/MainlayOut";
 import Home from "../Pages/Home";
 import Products from "../Pages/Products";
 import About from "../Pages/About";
 import ContactUs from "../Pages/ContactUs";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
-import DashboardLayout from "../lyouts/DashboardLayout";
+import DashboardLayout from "../layouts/DashboardLayout";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import Overview from "../Pages/Dashboard/Overview";
 import SellerRoute from "./PrivateRoute/SellerRoute";
-import MyProducts from "../Pages/Seller-pages/MyProducts";
-import AddProducts from "../Pages/Seller-pages/AddProducts";
+import MyProducts from "../Pages/Dashboard/Seller-pages/MyProducts";
+import AddProducts from "../Pages/Dashboard/Seller-pages/AddProducts";
+import MainLayout from "../layouts/MainLayout";
+import BuyerRoute from "./PrivateRoute/BuyerRoute";
+import MyWishlist from "../Pages/buyer/MyWishlist";
+import SeeDetails from "../Components/Products/SeeDetails";
+import Cart from "../Pages/buyer/Cart";
+import AdminRoute from "./PrivateRoute/AdminRoute";
+import AllUsers from "../Pages/admin/AllUsers";
+import ControlSeller from "../Pages/admin/ControlSeller";
 
 export const router = createBrowserRouter([
     {
@@ -42,6 +51,11 @@ export const router = createBrowserRouter([
                 path: "/register",
                 element: <Register></Register>
             },
+            {
+                path: "/details",
+                element: <SeeDetails></SeeDetails>
+            },
+           
         ]
     },
     {
@@ -54,6 +68,45 @@ export const router = createBrowserRouter([
                 path: "/dashboard/overview",
                 element: <Overview></Overview>
             },
+
+             // Admin Route
+
+             {
+                path:"/dashboard/all-users",
+                element:(
+                    <AdminRoute>
+                        <AllUsers></AllUsers>
+                    </AdminRoute>
+                )
+            },
+             {
+                path:"/dashboard/control-seller",
+                element:(
+                    <AdminRoute>
+                       <ControlSeller></ControlSeller>
+                    </AdminRoute>
+                )
+            },
+
+            // Buyer Route
+
+            {
+                path:"/dashboard/wishlist",
+                element:(
+                    <BuyerRoute>
+                        <MyWishlist></MyWishlist>
+                    </BuyerRoute>
+                )
+            },
+            {
+                path:"/dashboard/cart",
+                element:(
+                    <BuyerRoute>
+                        <Cart></Cart>
+                    </BuyerRoute>
+                )
+            },
+
             // seller route
 
             {

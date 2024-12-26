@@ -1,10 +1,11 @@
-/* eslint-disable react/prop-types */
+
+import React from "react";
 import { AiOutlineFilter } from "react-icons/ai";
 import { RiResetLeftLine } from "react-icons/ri";
 
 
 // eslint-disable-next-line no-unused-vars
-const Filter = ({ handleReset, setCategory, setBrand, uniqueBrand, UniqueCategory }) => {
+const FilterComponent = ({ handleReset, setCategory, setBrand, uniqueBrand, UniqueCategory }) => {
     return (
         <div>
             <div className="flex items-center gap-3 justify-center ">
@@ -39,4 +40,4 @@ const Filter = ({ handleReset, setCategory, setBrand, uniqueBrand, UniqueCategor
     );
 };
 
-export default Filter;
+export default FilterComponent;

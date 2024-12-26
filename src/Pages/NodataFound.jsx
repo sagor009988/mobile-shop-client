@@ -1,4 +1,5 @@
-
+// eslint-disable-next-line no-unused-vars
+import React from "react";
 const NodataFound = () => {
     return (
         <div className="min-h-screen w-full flex items-center justify-center">

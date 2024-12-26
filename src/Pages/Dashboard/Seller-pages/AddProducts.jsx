@@ -1,12 +1,18 @@
+// eslint-disable-next-line no-unused-vars
+import React from "react";
 import { useForm } from 'react-hook-form';
 
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import useAuth from '../../Hooks/useAuth';
+import useAuth from '../../../Hooks/useAuth';
+import useUserData from "../../../Hooks/useUserData";
 
 const AddProducts = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { user } = useAuth();
+    const userData=useUserData();
+    console.log(userData);
+    
 
     const onsubmit = (data) => {
         const title = data.title;
@@ -120,7 +126,7 @@ const AddProducts = () => {
                     </div>
 
                     <div className='w-full p-6'>
-                        <button type='submit' className='btn btn-primary w-full '>Add new Product </button>
+                        <button disabled={userData.status==="pending"} type='submit' className='btn btn-primary w-full '>Add new Product </button>
                     </div>
                 </form>
             </div>
